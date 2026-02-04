@@ -15,5 +15,5 @@ if st.button("Predict"):
         prediction=model.predict(input_data)
         if prediction [0]==1:
                 st.error("Warning:The Patient is likely to have heart disease. please consult the doctor.")
- else:
-        st.success("Result: The patient is unlikely to have heart disease.")       
+         else:
+                st.success("Result: The patient is unlikely to have heart disease.")       
