@@ -10,10 +10,10 @@ sex = st.selectbox("Sex", options=[1, 0], format_func=lambda x: 'Male' if x==1 e
 cp = st.selectbox("Chest Pain Type (0-3)", options=[0, 1, 2, 3])
 trestbps = st.number_input("Resting Blood Pressure (mm Hg)", 80, 200, 131)
 chol = st.number_input("Serum Cholestrol (mg/dl)", 100, 600, 246)
-if st.button("Predict")
-input_data=np.array([[age,sex,cp,trestbps,chol,0,0,150,0,1.0,1,0,2]])
-prediction=model.predict(input_data)
-if prediction [0]==1:
-        st.error("Warning:The Patient is likely to have heart disease. please consult the doctor.")
+if st.button("Predict"):
+        input_data=np.array([[age,sex,cp,trestbps,chol,0,0,150,0,1.0,1,0,2]])
+        prediction=model.predict(input_data)
+        if prediction [0]==1:
+                st.error("Warning:The Patient is likely to have heart disease. please consult the doctor.")
  else:
         st.success("Result: The patient is unlikely to have heart disease.")       
