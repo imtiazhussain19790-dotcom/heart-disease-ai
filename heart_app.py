@@ -12,7 +12,7 @@ st.markdown("""
         background-color: #f0f2f6;
     }
     </style>
-    """, unsafe_allow_ Harris=True)
+    "", unsafe_allow_ Harris=True)
 
 # 1. Load your saved model
 model = joblib.load('heart_model.pkl')
