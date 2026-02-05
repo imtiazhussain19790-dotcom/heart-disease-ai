@@ -6,7 +6,7 @@ from fpdf import FPDF
 st.set_page_config(page_title="Heart AI", page_icon="❤️", layout="centered")
 
 # اسٹائلنگ کے لیے کچھ کسٹم میسجز
-st.markdown("""
+st.markdown(""
     <style>
     .main {
         background-color: #f0f2f6;
