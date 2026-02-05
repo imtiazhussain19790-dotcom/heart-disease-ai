@@ -9,7 +9,7 @@ st.set_page_config(page_title="Heart AI", page_icon="❤️", layout="centered")
 # اسٹائلنگ کے لیے کسٹم کوڈ
 st.markdown("""
     <style>
-    .main {
+    .main) {
         background-color: #f0f2f6;
     }
     </style>
