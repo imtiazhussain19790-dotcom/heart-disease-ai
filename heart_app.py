@@ -6,10 +6,14 @@ from fpdf import FPDF
 st.set_page_config(page_title="Heart AI", page_icon="❤️", layout="centered")
 
 # اسٹائلنگ کے لیے کچھ کسٹم میسجز
-st.markdown("""<style>""").
-main { background-color: #f0f2f6; }
-    ("""</style>""", unsafe_allow_ Harris=True)
-
+# اسٹائلنگ کے لیے کسٹم کوڈ
+st.markdown("""
+    <style>
+    .main {
+        background-color: #f0f2f6;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 # 1. Load your saved model
 model = joblib.load('heart_model.pkl')
 
