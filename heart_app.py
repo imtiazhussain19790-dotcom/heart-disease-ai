@@ -2,7 +2,7 @@ import streamlit as st
 import joblib
 import numpy as np
 from fpdf import FPDF
-# model = joblib.load("heart_model.pkl")
+model = joblib.load("heart_model.pkl")
 
 
 # ---------------- PAGE CONFIG ----------------
