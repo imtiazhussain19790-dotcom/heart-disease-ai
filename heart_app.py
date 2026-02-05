@@ -11,22 +11,15 @@ lang = st.sidebar.selectbox("Select Language / زبان منتخب کریں", ["
 
 # Zubaan ke mutabiq alfaz ka chunao
 if lang == "Urdu":
-    title = "دل کی بیماری کی تشخیص کا نظام"
-    age_label = "عمر (سالوں میں)"
-    sex_label = "جنس"
-    predict_btn = "تشخیص کریں"
-    risk_msg = "انتباہ: مریض میں دل کی بیماری کا خطرہ پایا گیا ہے۔"
-    normal_msg = "نتیجہ: مریض میں دل کی بیماری کا کوئی خطرہ نہیں پایا گیا۔"
-    pdf_btn_label = "رپورٹ ڈاؤن لوڈ کریں (PDF)"
+    # ... پرانا کوڈ یہاں رہے گا ...
+    cp_label = "سینے میں درد کی قسم (0-3)"
+    bp_label = "بلڈ پریشر (mm Hg)"
+    chol_label = "کولیسٹرول (mg/dl)"
 else:
-    title = "Heart Disease Prediction System"
-    age_label = "Age (in years)"
-    sex_label = "Sex"
-    predict_btn = "Predict"
-    risk_msg = "Warning: The Patient is likely to have heart disease."
-    normal_msg = "Result: The patient is unlikely to have heart disease."
-    pdf_btn_label = "Download Report (PDF)"
-
+    # ... پرانا کوڈ یہاں رہے گا ...
+    cp_label = "Chest Pain Type (0-3)"
+    bp_label = "Resting Blood Pressure"
+    chol_label = "Serum Cholestrol"
 # 2. Load Model
 model = joblib.load('heart_model.pkl')
 
@@ -49,10 +42,11 @@ def create_pdf(age, sex, prediction, language):
 st.title(title)
 age = st.number_input(age_label, min_value=1, max_value=120, value=54)
 sex = st.selectbox(sex_label, options=[1, 0], format_func=lambda x: 'Male' if x==1 else 'Female')
-
+cp = st.selectbox(cp_label, options=[0, 1, 2, 3])
+trestbps = st.number_input(bp_label, 80, 200, 131)
+chol = st.number_input(chol_label, 100, 600, 246)
 # 5. Prediction Logic
-if st.button(predict_btn):
-    input_data = np.array([[age, sex, 0, 131, 246, 0, 0, 150, 0, 1.0, 1, 0, 2]])
+if st.button(predict_btn):input_data = np.array([[age, sex, cp, trestbps, chol, 0, 0, 150, 0, 1.0, 1, 0, 2]])
     prediction = model.predict(input_data)
     
     if prediction[0] == 1:
